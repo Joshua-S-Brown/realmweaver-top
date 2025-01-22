@@ -1,5 +1,8 @@
-## Realmweaver Overview
-Realmweave is an innovative web-based platform that aims to revolutionize tabletop roleplaying games by creating a living, breathing fantasy world that evolves through player actions and time progression. This project represents my journey into full-stack development, being built incrementally as I learn new skills through The Odin Project curriculum.
+# Realmweaver
+Forge your legend in a living world.
+
+## Project Overview
+Realmweaver is an innovative web-based platform that aims to revolutionize tabletop roleplaying games by creating a living, breathing fantasy world that evolves through player actions and time progression. This project represents my journey into full-stack development, being built incrementally as I learn new skills through The Odin Project curriculum.
 
 ## Vision
 Create a platform where:
