@@ -1,0 +1,142 @@
+/* Main styles building on our reset.css */
+
+/* Override the system font with specific fonts */
+body {
+    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+}
+
+/* Navigation */
+h1 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 900;
+}
+
+/* Header and Footer shared styles */
+header,
+footer { 
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    padding: var(--spacing-md) var(--spacing-xl);
+}
+
+/* Header specific styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--spacing-xl);
+}
+
+/* Footer specific styles */
+footer {
+    text-align: center;
+    font-size: 0.875rem; /* 14px */
+}
+
+/* Navigation list */
+ul {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+/* Since we're using role='list' in our reset, we don't need list-style: none here */
+li {
+    font-size: 1.125rem; /* 18px */
+}
+
+li:hover {
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+/* Hero Banner */
+.hero-banner {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    display: flex;
+    padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-lg);
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hero-content h2 {
+    font-size: 3rem; /* 48px */
+    font-weight: 900;
+}
+
+.hero-content p {
+    font-size: 1.125rem; /* 18px */
+    color: var(--color-text-secondary);
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+    overflow: hidden;
+    padding: var(--spacing-md);
+}
+
+/* Button styles are mostly handled by our reset, just need specific sizing */
+button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    min-width: 300px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+}
+
+/* Features Banner */
+.feature-banner > h3 {
+    color: var(--color-primary);
+    font-size: 2.125rem; /* 34px */
+}
+
+h3 {
+    text-align: center;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center; 
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+}
+
+.feature-item p {
+    font-size: 1rem; /* 16px */
+    text-align: center;
+}
+
+.feature-item h3 {
+    min-height: 46px;
+}
+
+/* Quote Banner */
+.quote-banner {
+    background-color: var(--color-surface);
+    padding: var(--spacing-md);
+}
+
+.right-align {
+    text-align: right;
+    padding: var(--spacing-xs) var(--spacing-xl);
+}
+
+/* Call To Action */
+.call-to-action {
+    padding: var(--spacing-md) var(--spacing-xl);
+}

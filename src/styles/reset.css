@@ -1,0 +1,111 @@
+/* Modern CSS Reset with Dark Theme
+ * This reset establishes a consistent base for modern browsers while
+ * implementing a dark theme with teal and pink/purple accent colors.
+ */
+
+ :root {
+    /* Color Palette */
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-primary: #00e5e5;  /* Magical teal */
+    --color-primary-dark: #00b3b3;
+    --color-secondary: #e042d0;  /* Vibrant pink-purple */
+    --color-secondary-dark: #b434a6;
+    
+    /* Spacing System */
+    --spacing-unit: 0.25rem;
+    --spacing-xs: calc(var(--spacing-unit) * 1);  /* 0.25rem */
+    --spacing-sm: calc(var(--spacing-unit) * 2);  /* 0.5rem */
+    --spacing-md: calc(var(--spacing-unit) * 4);  /* 1rem */
+    --spacing-lg: calc(var(--spacing-unit) * 6);  /* 1.5rem */
+    --spacing-xl: calc(var(--spacing-unit) * 8);  /* 2rem */
+  }
+  
+  /* Reset box model */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Improve text rendering */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                 Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  /* Make images easier to work with */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* Remove built-in form typography styles */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* Improve media defaults */
+  img {
+    height: auto;
+  }
+  
+  /* Remove list styles */
+  ul,
+  ol {
+    list-style: none;
+  }
+  
+  /* Set core link defaults */
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: var(--color-primary-dark);
+  }
+  
+  /* Set button defaults */
+  button {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: var(--color-primary-dark);
+  }
+  
+  /* Secondary button variant */
+  button.secondary {
+    background-color: var(--color-secondary);
+  }
+  
+  button.secondary:hover {
+    background-color: var(--color-secondary-dark);
+  }
+  
+  /* Improve text selection */
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+  }
