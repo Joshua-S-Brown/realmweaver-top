@@ -1,142 +1,435 @@
-/* Main styles building on our reset.css */
+/* Theme Variables and Reset */
+:root {
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-primary: #00e5e5;
+    --color-primary-dark: #00b3b3;
+    --color-secondary: #e042d0;
+    --color-secondary-dark: #b434a6;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 4rem;
 
-/* Override the system font with specific fonts */
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --glow-primary: 0 0 20px rgba(0, 229, 229, 0.15);
+    --glow-secondary: 0 0 20px rgba(224, 66, 208, 0.15);
+    
+    /* Add depth with multiple surface colors */
+    --color-surface-light: #252525;
+    --color-surface-dark: #1a1a1a;
+}
+
+/* Reset and base styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
-}
-
-/* Navigation */
-h1 {
-    font-size: 1.5rem; /* 24px */
-    font-weight: 900;
-}
-
-/* Header and Footer shared styles */
-header,
-footer { 
-    background-color: var(--color-surface);
+    background-color: var(--color-background);
     color: var(--color-text-primary);
-    padding: var(--spacing-md) var(--spacing-xl);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
 }
 
-/* Header specific styles */
-header {
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Layout Container */
+.container {
+    width: min(1200px, 100% - var(--spacing-xl));
+    margin-inline: auto;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: var(--color-surface);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: var(--spacing-xl);
 }
 
-/* Footer specific styles */
-footer {
-    text-align: center;
-    font-size: 0.875rem; /* 14px */
+.logo {
+    text-decoration: none;
 }
 
-/* Navigation list */
-ul {
-    display: flex;
-    gap: var(--spacing-md);
-}
-
-/* Since we're using role='list' in our reset, we don't need list-style: none here */
-li {
-    font-size: 1.125rem; /* 18px */
-}
-
-li:hover {
-    color: var(--color-primary);
-    cursor: pointer;
-}
-
-/* Hero Banner */
-.hero-banner {
-    background-color: var(--color-surface);
-    color: var(--color-text-primary);
-    display: flex;
-    padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-lg);
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.hero-content h2 {
-    font-size: 3rem; /* 48px */
+.logo h1 {
+    position: relative;
+    font-size: 2rem;
     font-weight: 900;
+    color: var(--color-primary);
 }
 
-.hero-content p {
-    font-size: 1.125rem; /* 18px */
+.logo h1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    filter: blur(20px);
+    background: var(--color-primary);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.nav-menu {
+    display: flex;
+    gap: var(--spacing-xl);
+    list-style: none;
+}
+
+.nav-menu a {
     color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 1.125rem;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-surface);
+    background: linear-gradient(
+        135deg,
+        var(--color-surface) 0%,
+        var(--color-surface-dark) 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(
+        circle at center,
+        var(--color-primary) 0%,
+        transparent 20%
+    );
+    opacity: 0.03;
+    animation: rotate 40s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.hero-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2xl);
 }
 
 .hero-content {
     flex: 1;
-    min-width: 300px;
-    overflow: hidden;
-    padding: var(--spacing-md);
 }
 
-/* Button styles are mostly handled by our reset, just need specific sizing */
-button {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-weight: 700;
-    border-radius: 8px;
+.hero-content h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 30px rgba(0, 229, 229, 0.3);
+}
+
+.hero-text {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
 }
 
 .hero-image-container {
     flex: 1;
-    display: flex;
-    min-width: 300px;
-    justify-content: center;
-    overflow: hidden;
+
 }
 
 .hero-image {
-    object-fit: cover;
+    border-radius: 1.5rem;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
     width: 100%;
     height: auto;
-    border-radius: 25px;
+    aspect-ratio: 3 / 2;
+    
 }
 
-/* Features Banner */
-.feature-banner > h3 {
+/* Features Section */
+.features-section {
+    padding: var(--spacing-2xl) 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-2xl);
     color: var(--color-primary);
-    font-size: 2.125rem; /* 34px */
 }
 
-h3 {
-    text-align: center;
-}
-
-.feature-cards {
+.feature-grid {
+    /* Change from grid to flex */
     display: flex;
-    justify-content: center; 
-    gap: var(--spacing-md);
-    padding: var(--spacing-xl);
+    flex-wrap: wrap;  /* Allow items to wrap as needed */
+    justify-content: center;  /* Center items horizontally */
+    gap: var(--spacing-xl);  /* Maintain consistent spacing between cards */
 }
 
-.feature-item p {
-    font-size: 1rem; /* 16px */
+/* Individual Feature Cards */
+.feature-card {
+    /* Set a fixed width that allows cards to sit in one row when possible */
+    width: 260px;  /* This width allows 4 cards to fit in a standard 1200px container */
+    flex-shrink: 0;  /* Prevent cards from squishing smaller than their set width */
+    
+    /* Keep your existing card styles */
+    background: var(--color-surface);
+    border-radius: 1rem;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    transition: transform 0.2s ease;
+    background: linear-gradient(
+        135deg,
+        var(--color-surface) 0%,
+        var(--color-surface-light) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Keep your existing hover effect */
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        var(--glow-primary),
+        0 15px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 229, 229, 0.2);
+}
+
+/* Ensure images maintain aspect ratio */
+.feature-card img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: var(--transition-smooth);
+}
+
+.feature-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Text styles remain the same */
+.feature-card h3 {
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
     text-align: center;
 }
 
-.feature-item h3 {
-    min-height: 46px;
+.feature-card p {
+    color: var(--color-text-secondary);
+    text-align: center;
 }
 
-/* Quote Banner */
-.quote-banner {
+/* Testimonial Section */
+.testimonial-section {
+    padding: var(--spacing-2xl) 0;
     background-color: var(--color-surface);
-    padding: var(--spacing-md);
+    background: linear-gradient(
+        135deg,
+        var(--color-surface-dark) 0%,
+        var(--color-surface) 100%
+    );
+    position: relative;
 }
 
-.right-align {
+.testimonial {
+    max-width: 65ch;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    position: relative;
+    padding: var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 8rem;
+    color: var(--color-primary);
+    opacity: 0.1;
+}
+
+.testimonial footer {
+    margin-top: var(--spacing-lg);
     text-align: right;
-    padding: var(--spacing-xs) var(--spacing-xl);
 }
 
-/* Call To Action */
-.call-to-action {
+.testimonial cite {
+    color: var(--color-primary);
+    font-style: normal;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: var(--spacing-2xl) 0;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, var(--color-surface), var(--color-background));
+    border-radius: 1.5rem;
+    padding: var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-xl);
+    background: linear-gradient(
+        135deg,
+        var(--color-surface) 0%,
+        var(--color-surface-dark) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--color-primary) 50%,
+        transparent 100%
+    );
+}
+
+.cta-content {
+    flex: 2;
+}
+
+.cta-content h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-content p {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
     padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: var(--transition-smooth);
+}
+
+.btn:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    box-shadow: var(--glow-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-primary);
+    box-shadow: var(--glow-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--color-surface);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
