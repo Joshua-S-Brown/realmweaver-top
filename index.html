@@ -6,101 +6,191 @@
     <meta name="description" content="Realmweaver - A revolutionary online TTRPG platform where your actions shape a living, breathing world">
     <title>Realmweaver - Your World, Truly Alive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/styles/globals.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons/src/css/icons.css">
+    <link href="https://cdn.jsdelivr.net/gh/nagoshiashumari/Rpg-Awesome@master/css/rpg-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <header class="site-header">
-        <nav class="main-nav container">
-            <a href="/" class="logo">
-                <h1>Realmweaver</h1>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
+    <!-- Main Navigation -->
+    <header class="main-nav">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <a href="/" class="nav-logo">R</a>
+                <a href="/" class="nav-logo-text">REALMWEAVER</a>
+                <ul class="nav-menu">
+                    <li><a href="/game">GAME</a></li>
+                    <li><a href="/classes">CLASSES</a></li>
+                    <li><a href="/news">NEWS</a></li>
+                    <li><a href="/patch-notes">PATCH NOTES</a></li>
+                    <li><a href="/discover">DISCOVER</a></li>
+                    <li><a href="/universe">UNIVERSE</a></li>
+                    <li><a href="/support">SUPPORT</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button class="icon-button" aria-label="Search">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+                <a href="/play" class="btn btn-secondary">PLAY NOW</a>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero-section">
-            <div class="hero-banner container">
-                <div class="hero-content">
-                    <h2>Your World, Truly Alive</h2>
-                    <p class="hero-text">Realmweaver is a revolutionary, online TTRPG platform where your actions shape a living, breathing
-                        world. Create stories, build legends, and watch your decisions ripple through the universe.</p>
-                    <a href="#signup" class="btn btn-primary">Begin Your Journey</a>
-                </div>
-                <div class="hero-image-container">
-                    <img class="hero-image" 
-                         src="./public/images/fantasy-city.png" 
-                         alt="A magical fantasy city with floating islands and ethereal architecture">
-                </div>
+        <!-- Hero Banner -->
+        <section class="hero-banner full-width">
+            <div class="hero-content centered">
+                <a href="/play" class="btn btn-primary btn-large">BEGIN YOUR JOURNEY</a>
             </div>
+            <img src="./public/images/landscape.png" alt="Magical fantasy city" class="hero-background">
         </section>
 
-        <section class="features-section" id="features">
+        <!-- Featured News -->
+        <section class="featured-news">
             <div class="container">
-                <h2 class="section-title">A New Era of Tabletop Gaming</h2>
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <h3>A Living, Breathing World</h3>
-                        <img src="./public/images/marketplace.png" 
-                             alt="A vibrant fantasy marketplace">
-                        <p>Shape a realm where your choices ripple across kingdoms, markets, and empires.</p>
+                <header class="section-header">
+                    <h2 class = "featured-news-h2">FEATURED NEWS</h2>
+                    <a href="/news" class="view-all">VIEW ALL</a>
+                </header>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <img src="./public/images/forge.png" alt="News image">
+                        <time>JANUARY 30, 2025</time>
+                        <h3>The Gates of Mordukai Open</h3>
+                        <p>Explore the ancient city's secrets in our latest content update.</p>
                     </article>
-                    <article class="feature-card">
-                        <h3>Forge Your Legacy</h3>
-                        <img src="./public/images/hero.png" 
-                             alt="A heroic character standing triumphantly">
-                        <p>Develop trade routes, sway politics, or craft legendary items in a world of endless possibilities.</p>
+                    <article class="news-card">
+                        <img src="./public/images/marketplace.png" alt="News image">
+                        <time>JANUARY 30, 2025</time>
+                        <h3>The Gates of Mordukai Open</h3>
+                        <p>Explore the ancient city's secrets in our latest content update.</p>
                     </article>
-                    <article class="feature-card">
-                        <h3>Adventure Together</h3>
-                        <img src="./public/images/party.png" 
-                             alt="A group of adventurers working together">
-                        <p>Forge alliances, build empires, and claim glory with friends in a responsive world.</p>
+                    <article class="news-card">
+                        <img src="./public/images/mountain-city.png" alt="News image">
+                        <time>JANUARY 30, 2025</time>
+                        <h3>The Gates of Mordukai Open</h3>
+                        <p>Explore the ancient city's secrets in our latest content update.</p>
                     </article>
-                    <article class="feature-card">
-                        <h3>Seamless Storytelling</h3>
-                        <img src="./public/images/cartographers-tools.png" 
-                             alt="Ancient cartography tools and maps">
-                        <p>Immerse yourself in deep storytelling while intelligent systems handle the heavy lifting.</p>
-                    </article>
+                    <!-- Repeat news-card 3 more times with different content -->
                 </div>
             </div>
         </section>
 
-        <section class="testimonial-section">
-            <div class="container">
-                <blockquote class="testimonial">
-                    <p>"In my centuries of watching the threads of fate intertwine, never have they shimmered with such possibility. A new age approaches, one where heroes rise not just by the strength of their blade, but by the wisdom of their choices. The old powers will bend, alliances will shift, and the very foundations of our realm will be reshaped by those yet to make their mark upon it."</p>
-                    <footer>
-                        <cite>Lady Moira Dawnweaver, Oracle of the Twilight Sanctum</cite>
-                    </footer>
-                </blockquote>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-card">
-                    <div class="cta-content">
-                        <h2>Your Legend Awaits</h2>
-                        <p>Take your place among heroes and forge the future of a living fantasy world. Whether through blade, coin, or cunning, your choices will echo through the realm.</p>
+        <!-- Class Selection -->
+        <section class="class-selection">
+            <div class="container split-content">
+                <div class="content-left">
+                    <h2>
+                        <span class="subtitle">CHOOSE YOUR</span>
+                        <span class="title-large">CLASS</span>
+                    </h2>
+                    <p class="lead-text">Master unique abilities and forge your own path across the realms.</p>
+                    <div class="button-group">
+                        <a href="/classes" class="btn btn-secondary">DISCOVER MORE CLASSES</a>
+                        <a href="/play" class="btn btn-primary">PLAY NOW</a>
                     </div>
-                    <a href="#signup" class="btn btn-secondary">Begin Your Journey</a>
+                    <div class="class-icons">
+                        <!-- Repeat for each class -->
+                        
+                            <div class="class-icon">
+                                <i class="ph-sword class-icon-image"></i>
+                                <span>WARRIOR</span>
+                            </div>
+                            <div class="class-icon">
+                                <i class="ph-magic-wand class-icon-image"></i>
+                                <span>MAGE</span>
+                            </div>
+                            <div class="class-icon">
+                                <i class="ph-target class-icon-image"></i>
+                                <span>RANGER</span>
+                            </div>
+                        
+                    </div>
+                </div>
+                <div class="content-right">
+                    <img src="./public/images/hero.png" alt="Warrior in battle stance" class="class-hero-image">
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 Realmweaver. All rights reserved.</p>
-        </div>
-    </footer>
+        <!-- Secondary Hero -->
+        <section class="hero-secondary full-width">
+            <div class="container split-content">
+                <div class="content-left">
+                    <img src="./public/images/villian.png" alt="Character portrait">
+                </div>
+                <div class="content-right">
+                    <h2>FORGE YOUR LEGEND</h2>
+                    <p>Every choice shapes your story in a world that lives and breathes.</p>
+                    <a href="/play" class="btn btn-primary">PLAY NOW</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ways to Play -->
+        <section class="ways-to-play">
+            <div class="container split-content">
+                <div class="content-left">
+                    <h2>MULTIPLE WAYS TO PLAY</h2>
+                    <p>Choose your path through combat, trade, or political intrigue.</p>
+                    <a href="/play" class="btn btn-primary">PLAY NOW</a>
+                    <div class="play-style-cards">
+                        <!-- Repeat for each play style -->
+                        <div class="play-style-card">
+                            <i class="ra ra-sword"></i>
+                            <h3>COMBAT</h3>
+                        </div>
+                        <div class="play-style-card">
+                            <i class="ra ra-anchor"></i>
+                            <h3>EXPLORE</h3>
+                        </div>
+                        <div class="play-style-card">
+                            <i class="ra ra-wrench"></i>
+                            <h3>CRAFT</h3>
+                        </div>
+                        <div class="play-style-card">
+                            <i class="ra ra-castle-emblem"></i>
+                            <h3>INTRIGUE</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <div class="circular-media">
+                        <img src="./public/images/party.png" alt="Gameplay preview">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-nav">
+                <nav class="container">
+                    <ul>
+                        <li><a href="/about">ABOUT</a></li>
+                        <li><a href="/feedback">HELP US IMPROVE</a></li>
+                        <li><a href="/support">SUPPORT</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-main">
+                <div class="container">
+                    <div class="social-links">
+                        <!-- Add social media icons/links -->
+                    </div>
+                    <div class="footer-logo">
+                        <a href="/" class="nav-logo">R</a>
+                        
+                    </div>
+                    <p class="copyright">&copy; 2025 Realmweaver. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
 </body>
 </html>
